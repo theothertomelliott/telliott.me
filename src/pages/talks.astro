@@ -1,25 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TalkCard from '../components/TalkCard.astro';
 ---
 
 <Layout>
     <div class="talks-container">
         <h1>Talks & Presentations</h1>
         <div class="talks-grid">
-            <!-- Example talk card - duplicate and modify for each talk -->
-            <div class="talk-card">
-                <div class="talk-content">
-                    <h2>[Talk Title]</h2>
-                    <p class="conference">[Conference/Event Name] - [Date]</p>
-                    <p class="description">
-                        [Brief description of the talk and its main topics]
-                    </p>
-                    <div class="links">
-                        <a href="#" class="button">Slides</a>
-                        <a href="#" class="button">Video</a>
-                    </div>
-                </div>
-            </div>
+            <TalkCard
+                title="Migrations for Humans"
+                event="Google NY SRE Tech Talks"
+                eventUrl="https://www.meetup.com/new-york-site-reliability-engineering-tech-talks/"
+                date="September 17 2024"
+                slidesUrl="https://docs.google.com/presentation/d/1jJ_BXXF2_WvSrZ-g0K1eU2ycer6-yoKwAUFI2HG0FXI/edit?usp=sharing"
+            >
+                <p>Migrations are often motivated by reliability, but can also harm reliability if not done with care.</p>
+                <p>In this talk, I explored several migrations I led over the past few years, including moving 2500+ jobs to Nomad, and subsequently containerizing these jobs.</p> 
+                <p>The talk discussed what went well and what went wrong in each instance, and how we applied what we learned to improve our migration competency.</p>
+            </TalkCard>
+            <TalkCard
+                title="When colleagues are customers"
+                event="Platform Engineering New York"
+                eventUrl="https://www.meetup.com/platform-engineering-new-york/"
+                date="October 17 2024"
+                slidesUrl="https://docs.google.com/presentation/d/1woorPCwwGq6vLqB4qTCpLHg4mUs5HuW_x9_bnrGN_Dc/edit?usp=sharing"
+            >
+                <p>Building a platform is like building a product— except you're often doing it without the guidance of a Product Manager.</p>
+                <p>In this talk, I explored how platform engineers can effectively gather feedback from internal teams, prioritize high-impact projects, and prove ROI despite being a cost center.</p>
+                <p>This talk also inspired three blog posts:</p>
+                <ul>
+                    <li><a href="https://thefridaydeploy.substack.com/p/the-pitfalls-of-cost-saving-projects" target="_blank" rel="noopener noreferrer">The pitfalls of cost-saving projects</a></li>
+                    <li><a href="https://thefridaydeploy.substack.com/p/why-i-prefer-running-internal-support" target="_blank" rel="noopener noreferrer">Why I prefer running internal support in Slack</a></li>
+                    <li><a href="https://thefridaydeploy.substack.com/p/building-an-internal-support-team" target="_blank" rel="noopener noreferrer">Building an internal support team your engineers will love</a></li>
+                </ul>
+            </TalkCard>
         </div>
     </div>
 </Layout>
