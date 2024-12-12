@@ -35,11 +35,15 @@ import Navigation from '../components/Navigation.astro';
 	main {
 		margin-left: 250px;
 		padding: 2rem;
+		min-height: calc(100vh - 4rem);
 	}
 
 	@media (max-width: 768px) {
 		main {
 			margin-left: 0;
+			padding: 1rem;
+			margin-top: 80px;
+			min-height: calc(100vh - 80px - 2rem);
 		}
 	}
 </style>
