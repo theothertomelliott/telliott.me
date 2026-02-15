@@ -1,0 +1,34 @@
+.hero-figure {
+  margin: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-figure figcaption {
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 1rem;
+    margin-left: 1rem;
+}
+
+.astro-code {
+    padding: 1rem;
+}

@@ -1,0 +1,5 @@
+title: "Can you use Git to replace S3?"
+slides_url: "https://git-backed-rest.pages.dev/"
+date: 2026-01
+event: "GolangNYC"
+description: "Summarizing my blog series on building a Git-backed REST API. Can you use Git as an alternative to S3 for managing a set of text files?"

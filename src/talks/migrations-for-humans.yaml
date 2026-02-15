@@ -1,0 +1,5 @@
+title: "Migrations for Humans"
+event: "Google NY SRE Tech Talks"
+date: "2024-09"
+description: "Explored lessons learned from leading large-scale migrations, including moving 2500+ jobs to Nomad and containerization. Covered what went well, what went wrong, and how to improve migration competency."
+slides_url: "https://docs.google.com/presentation/d/1jJ_BXXF2_WvSrZ-g0K1eU2ycer6-yoKwAUFI2HG0FXI/edit?usp=sharing"

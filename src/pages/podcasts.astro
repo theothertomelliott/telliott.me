@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all podcasts and sort by date (descending)
+const podcasts = await getCollection('podcasts');
+const sortedPodcasts = podcasts.sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+
+<Layout title="Podcasts">
+  <main style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
+    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 2rem;">Podcasts</h1>
+    
+    <div style="display: flex; flex-direction: column; gap: 3rem;">
+      {sortedPodcasts.map((podcast) => (
+        <article style="border-bottom: 1px solid #e5e7eb; padding-bottom: 2rem;">
+          <div style="margin-bottom: 1rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">{podcast.data.title}</h2>
+            <p style="color: #6b7280; font-size: 0.875rem;">{podcast.data.date}</p>
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <p style="color: #374151; line-height: 1.6;">{podcast.data.description}</p>
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <iframe
+              src={`https://www.youtube.com/embed/${podcast.data.video_url.split('v=')[1]}`}
+              title={podcast.data.title}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              style="width: 100%; height: 24rem; border-radius: 0.5rem;"
+            ></iframe>
+          </div>
+
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>

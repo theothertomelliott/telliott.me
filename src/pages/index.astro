@@ -1,40 +1,58 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import BlogPost from '../components/BlogPost.astro';
+import { getCollection } from "astro:content";
+const allPosts = (await getCollection("blog")).sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const grouped = allPosts.reduce((acc: Map<string, any[]>, post: any) => {
+  const d = post.data.pubDate;
+  const key = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+  if (!acc.has(key)) acc.set(key, []);
+  acc.get(key)!.push(post);
+  return acc;
+}, new Map<string, any[]>());
 ---
 
-<Layout>
+<BaseLayout pageTitle="telliott.me">
     <div class="about-container">
-        <h1>About Me</h1>
         <div class="content">
-            <p>
+          <div class="content-inner">
+            <div class="text">
+              <p>
                 Great to meet you! I'm Tom Elliott, a software developer and sometime public speaker based in New York.
-            </p>
-            
-            <h2>Background</h2>
-			<p>
-				Since joining the industry in 2007, I've had the good fortune to work in a number of different areas,
-				including enterprise VDI, VPN clients, mobile apps and SaaS applications. In recent years, I've found
-				my niche and passion in DevOps.
-			</p>
-
-            <h2>Current Focus</h2>
-            <p>
-                Since June of 2024, my main focus has been a new startup, <a href="https://www.ocuroot.com">Ocuroot</a>!
-				Ocuroot is a new CI/CD tool focusing on helping enterprises scale deployments across many production environments.
-            </p>
-			<p>
-				I also write weekly posts on Substack at <a href="https://thefridaydeploy.substack.com/">The Friday Deploy</a>.
-				The primary focus is on CI/CD, but I've occasionally veered into broader DevOps topics and some aspects of managing a software team.
-				New posts go out Fridays at 10am ET.
-			</p>
+              </p>
+              <p>
+                Since joining the industry in 2007, I've had the good fortune to work in a number of different areas,
+                including enterprise VDI, VPN clients, mobile apps and SaaS applications. In recent years, I've found
+                my niche and passion in DevOps.
+              </p>
+            </div>
+            <div class="profile-pic-wrapper">
+              <img src="/profile-pic.jpg" alt="Tom Elliott" class="profile-pic" width="220" height="220" />
+            </div>
+          </div>
         </div>
     </div>
-</Layout>
+
+    {[...grouped.entries()].map(([month, posts]: [string, any[]]) => (
+      <div>
+        <h3>{month}</h3>
+        <ul>
+          {posts.map((post: any) => <BlogPost url={`/posts/${post.data.slug}/`} title={post.data.title} />)}
+        </ul>
+      </div>
+    ))}
+
+</BaseLayout>
 
 <style>
     .about-container {
         max-width: 800px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
     h1 {
@@ -53,8 +71,38 @@ import Layout from '../layouts/Layout.astro';
     .content {
         background: white;
         padding: 2rem;
+        margin-bottom: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .content h2 {
+        margin-top: 0;
+    }
+
+    .content-inner {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .text {
+        flex: 1;
+    }
+
+    .profile-pic-wrapper {
+        flex-shrink: 0;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .profile-pic {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     p {

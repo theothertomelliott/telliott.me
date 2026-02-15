@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import '../styles/post.css';
+const { frontmatter } = Astro.props;
+
+function linkifyCaption(text: string): string {
+  return text.replace(/(https?:\/\/\S+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+}
+---
+<BaseLayout pageTitle={frontmatter.title}>
+<h1>{frontmatter.title}</h1>
+<p>{frontmatter.pubDate.toLocaleDateString()}</p>
+  <p><em>{frontmatter.description}</em></p>
+  {frontmatter.image && (
+    <figure class="hero-figure">
+      <img class="hero-image" src={frontmatter.image.url} alt={frontmatter.image.alt} />
+      {frontmatter.image.caption && <figcaption set:html={linkifyCaption(frontmatter.image.caption)} />}
+    </figure>
+  )}
+
+    <div class="post-content">
+      <slot />
+    </div>
+</BaseLayout>
+<style>
+  a {
+    color: #00539F;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+</style>
