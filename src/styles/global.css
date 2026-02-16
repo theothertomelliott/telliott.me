@@ -17,6 +17,7 @@ header {
   padding-left: 1rem;
   margin-bottom: 2rem;
   border-bottom: 1px solid #ccc;
+  position: relative;
 }
 
 .page-content {
@@ -55,13 +56,19 @@ html.dark {
 }
 
 .dark .menu {
-  background-color: #fff;
-  color: #000;
+  background-color: #555;
+  color: #fff;
 }
 
 .dark .nav-links a:hover,
 .dark .nav-links a:focus {
-  color: #0d0950;
+  background-color: #444;
+  color: #fff;
+}
+
+.dark .nav-links {
+  background-color: #1a1a1a;
+  border-bottom-color: #555;
 }
 
 .dark .nav-links a {
@@ -75,7 +82,7 @@ html.dark {
 /* nav styles */
 
 .menu {
-  background-color: #0d0950;
+  background-color: #444;
   border: none;
   color: #fff;
   font-size: 1.2rem;
@@ -87,6 +94,12 @@ html.dark {
   width: 100%;
   display: none;
   margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f1f5f9;
+  z-index: 10;
+  border-bottom: 1px solid #ccc;
 }
 
 .nav-links a {
@@ -110,11 +123,11 @@ html.dark {
 
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
     display: block;
     position: static;
     width: auto;
     background: none;
+    z-index: auto;
   }
 
   .nav-links a {

@@ -82,8 +82,9 @@ const grouped = allPosts.reduce((acc: Map<string, any[]>, post: any) => {
 
     .content-inner {
         display: flex;
-        align-items: flex-start;
-        gap: 2rem;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1.5rem;
     }
 
     .text {
@@ -92,10 +93,23 @@ const grouped = allPosts.reduce((acc: Map<string, any[]>, post: any) => {
 
     .profile-pic-wrapper {
         flex-shrink: 0;
-        width: 220px;
-        height: 220px;
+        width: 180px;
+        height: 180px;
         border-radius: 50%;
         overflow: hidden;
+    }
+
+    @media screen and (min-width: 636px) {
+        .content-inner {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .profile-pic-wrapper {
+            width: 220px;
+            height: 220px;
+        }
     }
 
     .profile-pic {
