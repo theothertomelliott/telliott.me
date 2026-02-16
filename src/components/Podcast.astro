@@ -1,0 +1,24 @@
+---
+const { podcast } = Astro.props;
+---
+<article class="podcast">
+    <div>
+    <h2>{podcast.data.title}</h2>
+    <p>{podcast.data.date}</p>
+    </div>
+    
+    <div>
+    <p>{podcast.data.description}</p>
+    </div>
+    
+    <div>
+        <iframe
+            src={`https://www.youtube.com/embed/${podcast.data.video_url.split('v=')[1]}`}
+            title={podcast.data.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="width: 100%; height: 24rem; border-radius: 0.5rem;"
+        ></iframe>
+    </div>
+    
+</article>

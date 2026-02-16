@@ -1,0 +1,41 @@
+---
+const { talk } = Astro.props;
+---
+
+<article class="talk">
+    <div>
+        <h2>
+            {talk.data.title}
+        </h2>
+        <p>
+            {talk.data.event} • {talk.data.date}
+        </p>
+    </div>
+
+    <div>
+        <p>{talk.data.description}</p>
+    </div>
+
+    <div class="talk_actions">
+        <a
+            class="slides"
+            href={talk.data.slides_url}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Slides
+        </a>
+        {
+            talk.data.video_url && (
+                <a
+                    class="video"
+                    href={talk.data.video_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Video
+                </a>
+            )
+        }
+    </div>
+</article>

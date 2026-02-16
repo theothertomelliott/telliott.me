@@ -1,0 +1,26 @@
+article.talk {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 2rem;
+}
+
+.talk_actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* .talk_actions a.slides {
+    padding: 0.5rem 1rem;
+    background-color: #ff9776;
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+} */
+
+/* .talk_actions a.video {
+    padding: 0.5rem 1rem;
+    background-color: #ff9776;
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+} */
