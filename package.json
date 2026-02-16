@@ -1,12 +1,13 @@
 {
-  "name": "",
+  "name": "telliott.me",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -17,5 +18,9 @@
     "remark-math": "^6.0.0",
     "turndown": "^7.2.2",
     "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.2.3"
   }
 }
