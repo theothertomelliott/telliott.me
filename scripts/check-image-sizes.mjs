@@ -49,6 +49,7 @@ async function checkImageSizes() {
   async function resizeImage(imagePath, newWidth) {
     try {
       const backupPath = imagePath.replace(/(\.[^.]+)$/, '_original$1');
+      const tempPath = imagePath.replace(/(\.[^.]+)$/, '_temp$1');
       
       // Create backup if it doesn't exist
       try {
@@ -58,13 +59,17 @@ async function checkImageSizes() {
         console.log(`📋 Created backup: ${backupPath}`);
       }
       
-      // Resize the image
+      // Resize the image to a temporary file first
       await sharp(imagePath)
         .resize(newWidth, null, { 
           withoutEnlargement: true,
           fit: 'inside'
         })
-        .toFile(imagePath);
+        .toFile(tempPath);
+      
+      // Replace the original with the resized version
+      await fs.copyFile(tempPath, imagePath);
+      await fs.unlink(tempPath);
       
       console.log(`✅ Resized ${imagePath} to ${newWidth}px wide`);
       return true;
