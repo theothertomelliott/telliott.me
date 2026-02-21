@@ -24,17 +24,21 @@ const grouped = allPosts.reduce((acc: Map<string, any[]>, post: any) => {
               </p>
               <p>
                 Since joining the industry in 2007, I've had the good fortune to work in a number of different areas,
-                including enterprise VDI, VPN clients, mobile apps and SaaS applications. In recent years, I've found
-                my niche and passion in DevOps.
+                including enterprise VDI, VPN clients, mobile apps and SaaS applications.
+                </p>
+              <p>
+                In recent years, I've found my niche and passion in DevOps. My writings in this area since 2024 can be found below.
               </p>
             </div>
             <div class="profile-pic-wrapper">
               <img src="/profile-pic.jpg" alt="Tom Elliott" class="profile-pic" width="220" height="220" />
             </div>
           </div>
+          <a href="/rss.xml" class="rss-link">
+            Subscribe via RSS
+          </a>
         </div>
     </div>
-
     {[...grouped.entries()].map(([month, posts]: [string, any[]]) => (
       <div>
         <h3>{month}</h3>
