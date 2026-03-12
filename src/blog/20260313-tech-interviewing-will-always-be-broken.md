@@ -2,7 +2,7 @@
 title: "Tech interviewing will always be broken"
 slug: "tech-interviewing-will-always-be-broken"
 pubDate: 2026-03-13
-description: "TODO"
+description: "Technical interviews have changed a lot over the years. Various kinds of interviews have drawn various kinds of complaint. We can make it better, but it'll still always be a bit broken."
 author: "Tom Elliott"
 image:
   url: "/assets/blog/20260313-tech-interviewing-will-always-be-broken/cover.jpg"
