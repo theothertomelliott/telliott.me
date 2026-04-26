@@ -6,8 +6,20 @@ const { frontmatter } = Astro.props;
 function linkifyCaption(text: string): string {
   return text.replace(/(https?:\/\/\S+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
 }
+
+// Get the full URL for the post
+const postUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 <BaseLayout pageTitle={frontmatter.title}>
+  <meta property="og:title" content={frontmatter.title} />
+  <meta property="og:description" content={frontmatter.description} />
+  <meta property="og:url" content={postUrl} />
+  {frontmatter.image && <meta property="og:image" content={new URL(frontmatter.image.url, Astro.site)} />}
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={frontmatter.title} />
+  <meta name="twitter:description" content={frontmatter.description} />
+  {frontmatter.image && <meta name="twitter:image" content={new URL(frontmatter.image.url, Astro.site)} />}
 <h1>{frontmatter.title}</h1>
 <p>{frontmatter.pubDate.toLocaleDateString()}</p>
   <p><em>{frontmatter.description}</em></p>
