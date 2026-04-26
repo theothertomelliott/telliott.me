@@ -98,6 +98,6 @@ before they get close to a customer!
 When setting up your SLOs, don't stop at your synchronous requests! Look at the
 asynchronous work your system does, and how you can measure its success. Set aggressive
 goals and test as early as possible to catch issues before they hit your customers in
-unexpected and disastroud ways.
+unexpected and disastrous ways.
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
