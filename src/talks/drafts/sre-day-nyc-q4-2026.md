@@ -38,19 +38,6 @@ Fail safe without having to be failure-proof!
 
 Generated for research / drafting. Conference target: [SREday NYC Q4 2026](https://sreday.com/2026-nyc-q4/) (Datadog HQ, Nov 7, 2026). Agenda checked against the published schedule as of this note.
 
-## Conference agenda overlap
-
-Agenda is heavily AI-agent / observability / LLM-ops. Classic “brownout vs blackout” reliability is underrepresented — that’s an opportunity for **Degraded is better than down**.
-
-| Sketch topic | Overlap risk | Closest talks | Implication |
-|---|---|---|---|
-| **Degraded is better than down** | Low | *Paying for the Worst Day: Sizing Standby from RTO* (Experian) — regional DR / standby capacity tradeoffs; *Actionable Observability* (NYT) — SLOs / error budgets as the language for acceptable degradation | Strongest unique angle. Differentiate: feature/quality brownouts and intentional blast-radius, not just standby sizing or SLO theory. |
-| **Backup plans when things break** | Low–medium | *Agents Can Write Migrations. They Shouldn’t Ship Them* (Tiger Data) — production guardrails; *Agent Toolkit… on AWS* — blast radius / auditability for agent deploys | Break-glass CI/CD and laptop deploys are largely unclaimed. Avoid framing as “AI deploy governance”; keep it human emergency process + compliance story (your Yext / Nomad / Jira pattern). |
-| **Don’t page me, bro!** | Medium | *You Build It, You Run It Is Dead* (Dalton AI) — who holds the pager when the author is an agent; *Who Stops the AI Agent at 2 AM?* (Guild Systems) — intervention / kill switches | Human onboarding to paging is still distinct if you stay on training, context, and ownership — not agent governance. Expect audience to have heard adjacent “who pages?” framing that day. |
-| **Battling AI complacency** | High | *SRE in the Era of AI* (Qovery); *Who Stops the AI Agent at 2 AM?*; *You Build It, You Run It Is Dead*; *Agents Can Write Migrations…*; *Green Dashboards, Wrong Cows*; *Production Has Observability. Your Coding Agent Doesn’t* | Crowded track. Only pursue if you have sharp, personal failure stories that aren’t “agents need guardrails” (already the day’s theme). |
-
-**Recommendation for this CFP:** lead with **Degraded is better than down**. It’s the clearest gap on the agenda and fits a practitioner story (Yext multi-region). Use break-glass or onboarding as backup abstracts if needed. Soft-pedal or defer AI-complacency unless you can stake a narrow claim the other talks don’t cover.
-
 ## Degraded is better than down — expanded notes
 
 ### Structure suggestion
