@@ -24,6 +24,25 @@ What can you *not* compromise on?
 
 ---
 
+Structure:
+
+* Introduction story - Yext regions
+   * Some years ago
+   * Before AI
+   * When things were slower
+* Concept & goals of talk
+   > Explain what graceful degradation is
+   > Highlight a few cases where it can be useful
+   > Tools and techniques to gracefully degrade
+   > Situations where degrading isn't an option
+* What graceful degradation is
+* What failure modes there are
+* What can degrade: feature set, latency, freshness, correctness, error rate
+* How to degrade
+* When to think twice: data sovereignty, upstream latency, security
+
+---
+
 Abstract:
 
 Everything breaks. Bad deploys, traffic spikes, cloud outages, eventually some component will go down. When architecting a system, our instinct can be to try and eliminate any possible impact. But this can add complexity that paradoxically makes failures more likely, or make recovery harder.
