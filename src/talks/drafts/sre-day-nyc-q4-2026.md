@@ -35,10 +35,22 @@ Structure:
    > Highlight a few cases where it can be useful
    > Tools and techniques to gracefully degrade
    > Situations where degrading isn't an option
+* How can things fail?
+   > Overloading
+   > Upstream outage
+   > Cascading failures
+* Mitigation is not without risk
+   https://sre.google/resources/practices-and-processes/twenty-years-of-sre-lessons-learned/
+   > 
 * What graceful degradation is
-* What failure modes there are
 * What can degrade: feature set, latency, freshness, correctness, error rate
 * How to degrade
+   * Higher latency
+   * Read-only state
+   * Load shedding
+   * Rate limiting
+   * Slow eventual consistency
+   * Disabled features
 * When to think twice: data sovereignty, upstream latency, security
 
 ---
