@@ -36,6 +36,7 @@ const talks = defineCollection({
     schema: z.object({
       title: z.string(),
       event: z.string(),
+      event_url: z.string().url().optional(),
       date: z.string(),
       description: z.string(),
       slides_url: z.string(),
