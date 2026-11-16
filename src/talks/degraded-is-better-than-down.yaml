@@ -1,0 +1,14 @@
+title: "Degraded is better than down"
+event: "SREday NYC"
+event_url: "https://sreday.com/2026-nyc-q4/"
+date: "2026-11"
+description: >-
+  Everything breaks. Bad deploys, traffic spikes, cloud outages, eventually some
+  component will go down. When architecting a system, our instinct can be to try
+  and eliminate any possible impact. But this can add complexity that paradoxically
+  makes failures more likely, or make recovery harder. Let's look at an alternative:
+  embracing degradation to cushion against a total outage. We'll look at a real
+  world example of multi-region routing, explore a catalogue of failure modes and
+  trade-offs that can blunt them, and highlight when compromise isn't an option.
+  Fail safe without having to be failure-proof!
+slides_url: "https://graceful-degradation.pages.dev/1"

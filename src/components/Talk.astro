@@ -17,6 +17,18 @@ const { talk } = Astro.props;
     </div>
 
     <div class="talk_actions">
+        {
+            talk.data.event_url && (
+                <a
+                    class="event"
+                    href={talk.data.event_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Event
+                </a>
+            )
+        }
         <a
             class="slides"
             href={talk.data.slides_url}
